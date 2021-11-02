@@ -2,9 +2,9 @@
 -- Tomás Castro Rojas   C-6879/9
 
 -- EJERCICIO 1
-CREATE DATABASE IF NOT EXISTS Biblioteca;
+CREATE DATABASE IF NOT EXISTS tcastrorojas_Biblioteca;
 
-USE Biblioteca;
+USE tcastrorojas_Biblioteca;
 
 DROP TABLE IF EXISTS Escribe;
 DROP TABLE IF EXISTS Autor;
@@ -88,14 +88,14 @@ UPDATE Libro SET precio = precio * 1.1
     WHERE editorial = 'UNR';
 
 UPDATE Libro Set precio = precio * 1.1 
-    WHERE ISBN IN (SELECT ISBN FROM Escribe 
-        WHERE id IN (SELECT id FROM Autor 
+    WHERE ISBN IN (SELECT Escribe.ISBN FROM Escribe 
+        WHERE id IN (SELECT Autor.id FROM Autor 
             WHERE nacionalidad <> 'Argentina')) AND precio > 200;
 UPDATE Libro Set precio = precio * 1.2
-    WHERE ISBN IN (SELECT ISBN FROM Escribe 
-        WHERE id IN (SELECT id FROM Autor 
+    WHERE ISBN IN (SELECT Escribe.ISBN FROM Escribe 
+        WHERE id IN (SELECT Autor.id FROM Autor 
             WHERE nacionalidad <> 'Argentina')) AND precio <= 200;
 
 DELETE FROM Libro
-    WHERE ISBN IN (SELECT ISBN FROM Escribe
+    WHERE ISBN IN (SELECT Escribe.ISBN FROM Escribe
         WHERE año = '1998');
