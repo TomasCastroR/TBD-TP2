@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `Inmobiliaria`;
+CREATE DATABASE IF NOT EXISTS `tcastrorojas_Inmobiliaria`;
 
-USE `Inmobiliaria`;
+USE `tcastrorojas_Inmobiliaria`;
 
 DROP TABLE IF EXISTS `Poblacion`;
 DROP TABLE IF EXISTS `Zona`;
